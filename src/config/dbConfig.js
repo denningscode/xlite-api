@@ -1,8 +1,9 @@
+import dotenv from "dotenv";
 import mysql from "mysql2";
 
-const connection = mysql.createConnection(
-  "mysql://u_xlite_api_db:-FbDmey9l7FkfsePkCiJNjMR@localhost:3306/xlite_api_db"
-);
+dotenv.config();
+
+const connection = mysql.createConnection(process.env.DATABASE_URL);
 
 connection.connect((err) => {
   if (err) {
