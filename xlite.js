@@ -15,7 +15,7 @@ import otpRoute from "./src/routes/otp/otpRoute.js";
 import connectRoute from "./src/routes/connect/connectRoute.js";
 
 const app = express();
-const port = 5577;
+const port = process.env.PORT || 5577;
 
 app.use(express.json());
 app.use(fileUpload({

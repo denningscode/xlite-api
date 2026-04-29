@@ -1,12 +1,15 @@
-import mysql from "mysql";
+import mysql from "mysql2";
 
-const connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '',
-    database : 'xlite'
+const connection = mysql.createConnection(
+  process.env.DATABASE_URL
+);
+
+connection.connect((err) => {
+  if (err) {
+    console.error("DB connection failed:", err);
+  } else {
+    console.log("Connected to MySQL");
+  }
 });
-
-connection.connect();
 
 export default connection;
